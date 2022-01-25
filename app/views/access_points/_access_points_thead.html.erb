@@ -1,0 +1,34 @@
+<%#
+# This file is part of the OpenWISP Geographic Monitoring
+#
+# Copyright (C) 2012 OpenWISP.org
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#%>
+
+<tr>
+	<th class="hostname"><%= link_to_sort t(:Hostname) %></th>
+  <th class="site_description"><%= link_to_sort t(:Site_description) %></th>
+	<th class="address"><%= link_to_sort t(:Address) %></th>
+	<th class="city"><%= link_to_sort t(:City) %></th>
+	<th class="mac_address"><%= link_to_sort t(:Mac_address) %></th>
+	<th class="ip_address"><%= link_to_sort t(:Ip_addr)  %></th>
+	<th class="activation_date"><%= link_to_sort t(:Activation_date)  %></th>
+	<th class="group"><%= link_to_sort t(:Group) %></th>
+	<th class="public hastip" title="<%= t :Published_thead_tooltip %>"><%= link_to_sort t(:Public) %></th>
+	<th class="favourite"><%= link_to_sort t(:Favourite) %></th>
+	<% if not @group.present? or @group.monitor %>
+	<th class="status"><%= link_to_sort t(:Status) %></th>
+	<% end %>
+</tr>

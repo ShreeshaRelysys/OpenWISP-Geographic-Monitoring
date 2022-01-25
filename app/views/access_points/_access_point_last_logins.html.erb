@@ -1,0 +1,46 @@
+<% if CONFIG['last_logins'] and @wisp.owums_enabled? and @access_point.known? %>
+	<% if auth?(:wisps_viewer) || auth?(:wisp_associated_user_counts_viewer, @wisp)%>
+		<div class="grid_12" id="last-logins">
+			<div class="box">
+				<h2>
+					<a href="#" class="toggle hidden">
+						<%=t :Last_10_logins %>
+						<span class="arrow" data-show="&#x25BC;" data-hide="&#x25B2;">&#x25BC;</span>
+					</a>
+				</h2>
+				<div class="container">
+					<div class="loading">
+						<span><%=t :Loading_data %> </span>
+						<%= image_tag "spinner.gif" %>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th class="username"><%= t :username %></th>
+								<th class="ip"><%= t :ip_address %></th>
+								<th class="mac"><%= t :mac_address %></th>
+								<th class="login-date"><%= t :login_date %></th>
+								<th class="download"><%= t :download_kbytes %></th>
+								<th class="upload"><%= t :upload_kbytes %></th>
+								<th class="logout-date"><%= t :logout_date %></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td colspan="8"></td>
+							</tr>
+							<!-- data is loaded by owgm.monitorLastLogins() -->
+						</tbody>
+					</table>
+					<div class="message alert" class="hidden"><%= t :last_logins_problem %></div>
+				</div>
+			</div>
+		</div>
+		<script>
+			owgm.loadLastLogins(function(){
+				// callback to be executed after first load
+				owgm.monitorLastLogins(30000) // refresh every 30 seconds
+			});
+		</script>
+	<% end %>
+<% end %>

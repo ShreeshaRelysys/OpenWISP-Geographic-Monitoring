@@ -1,0 +1,68 @@
+<%#
+# This file is part of the OpenWISP Geographic Monitoring
+#
+# Copyright (C) 2012 OpenWISP.org
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#%>
+
+<div class="grid_12">
+  <div class="box">
+    <h1><%=t :Wisp_list %></h1>
+
+    <table id="wisp-list">
+      <thead>
+        <tr>
+          <th class="name"><%=t :Name %></th>
+          <th class="notes"><%=t :Notes %></th>
+          <th class="up green center"><%=t :Up %></th>
+          <th class="down red center"><%=t :Down %></th>
+          <th class="unknown center"><%=t :Unknown %></th>
+          <th class="total center"><%=t :Total %></th>
+          <th class="favourite center"><%= image_tag('star.png', :alt => 'favourite') %><span><%=t :Favourites %></span></th>
+          <th class="groups center"><%=t :Groups %></th>
+          <th class="report">&nbsp;</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <% @wisps.each do |wisp| %>
+          <% if auth?(:wisps_viewer) || auth?(:wisp_access_points_viewer, wisp) %>
+              <tr class="<%= cycle 'odd', 'even' %>">
+                <td class="name"><%= link_to wisp.name, wisp_access_points_path(wisp) %></td>
+                <td class="notes"><%= wisp.notes %></td>
+                <td class="up center"><%= wisp.count_access_points(:up) %></td>
+                <td class="down center"><%= wisp.count_access_points(:down) %></td>
+                <td class="unknown center"><%= wisp.count_access_points(:unknown) %></td>
+                <td class="total center"><%= wisp.count_access_points(:total) %></td>
+                <td class="favourite center">
+                  <%= link_to wisp.count_access_points(:favourite), wisp_access_points_favourite_path(wisp),
+                    :class => 'hastip',
+                    :title => t(:View_favourite_of_wisp, :wisp => wisp.name)
+                  %>
+                </td>
+                <td class="groups center">
+                  <%= link_to wisp.count_groups, wisp_groups_path(wisp),
+                    :class => 'hastip',
+                    :title => t(:View_groups_of_wisp, :wisp => wisp.name) %>
+                </td>
+                <td class="report center"><%= link_to t(:Availability_report), wisp_availability_report_path(wisp) %></td>
+              </tr>
+          <% end %>
+      <% end %>
+      </tbody>
+    </table>
+
+  </div>
+</div>

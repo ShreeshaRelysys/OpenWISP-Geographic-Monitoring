@@ -1,0 +1,47 @@
+<%#
+# This file is part of the OpenWISP Geographic Monitoring
+#
+# Copyright (C) 2012 OpenWISP.org
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#%>
+
+<div class="grid_12">
+  <div class="grid_5" id="login">
+    <div class="box center">
+      <h2><%=t :Sign_in %></h2>
+      <br />
+
+      <%= form_for resource, :as => resource_name, :url => session_path(resource_name) do |f| -%>
+        <p>
+          <b><%= f.label :username, t(:Username) %></b>
+          <%= f.text_field :username %>
+        </p>
+
+        <p>
+          <b><%= f.label :password %></b>
+          <%= f.password_field :password %>
+        </p>
+
+        <% if devise_mapping.rememberable? -%>
+        <p><%= f.check_box :remember_me %> <b><%= f.label :remember_me, t(:Remember_me) %></b></p>
+        <% end -%>
+
+        <p><%= f.submit t(:Sign_in) %></p>
+        <% end -%>
+
+        <%= render :partial => "users/shared/links" %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+--- 
+:backgroundrb: 
+  :ip: 127.0.0.1
+  :port: 11012
+  :environment: production
+  
+:schedules:
+ :monitoring_worker:
+  :access_points_monitoring:
+   :trigger_args: 0  */5  *  * * *
+  :send_alerts:
+   :trigger_args: 0  */1  *  * * *
+  :consolidate_access_points_monitoring:
+   :trigger_args: 0   30  */1 * * *
+  :associated_user_counts_monitoring:
+   :trigger_args: 0  */5  *  * * *
+  :consolidate_associated_user_counts_monitoring:
+   :trigger_args: 0   30  */1 * * *
+  :housekeeping:
+   :trigger_args: 0  30   1  * * *
+  :clean_activityhistory:
+   :trigger_args: 0  30   2  * * *

@@ -1,0 +1,344 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  activerecord:
+    attributes:
+      access_point:
+        address: address
+        city: city
+        hostname: hostname
+        public: published
+        site_description: installation site
+        status: status
+        favourite: favourite
+      group:
+        name: name
+        alerts_email: "Email: "
+        alerts_threshold_down: "Alert threshold down:"
+        alerts_threshold_up: "Alert threshold up:"
+    errors:
+      template:
+        header: "Validation Error"
+        body: "The operation did not succeed, fix the errors reported below and retry."
+      models:
+        user:
+          attributes:
+            email:
+              taken: 'email already used by another user'
+              blank: can't be empty
+            username:
+              blank: can't be empty
+            password:
+              blank: can't be empty
+              confirmation: and password confirmation mismatch
+            password_confirmation:
+              blank: can't be empty
+        group:
+          attributes:
+            name:
+              blank: can't be empty
+  
+  # Uppercase
+  Activation_date: Activation date
+  Activity_graph: Activity graph
+  Activity_average_graph: Average activity graph
+  Activity_average_archive: Archived average activity data
+  Address: Address
+  Associated_users_graph: Associated users graph
+  Associated_users_average_graph: Average associated users graph
+  Availability_report: Availability report
+  Availability_report_for: Availability report for %{wisp}
+  Avg_availability: Average availability
+  Are_you_sure: Are you sure?
+  Back: Back
+  Cancel: Cancel
+  Category: Category (GeoRSS)
+  City: City
+  Click_and_drag_to_zoom_in: You can click and drag to zoom in
+  Click_to_edit: Click to edit
+  Cluster: Cluster
+  Cluster_info: "This cluster contains:"
+  Comma_separated_wisps: "Comma separated Wisps..."
+  Configuration_list: "Configurations list"
+  Configure_owmw: "Configure Owmw"
+  Connected_users: Connected users
+  Coordinates: Coordinates
+  Create_new_category: Create new category
+  Description: Description
+  Details: Details
+  Down: Down
+  Earliest_seen: Earliest seen on
+  Export_data: Export data
+  Filter_data_by_date: Filter by date
+  Filter_instructions_1: "
+    Dates are relative for each access point's data starting from the activation date, or
+  "
+  Filter_instructions_2: "
+    the first date of the observation period, to the latest observation period's date.
+  "
+  Graphs: Graphs
+  Highlight_access_points_with: Highlight access points with
+  Hostname: Hostname
+  Key: Key
+  Value: Value
+  Access_point: Access point
+  Access_point_info: "Quick info:"
+  Access_point_named: Access point %{hostname}
+  Access_points: Access points
+  Access_points_for: %{wisp}'s Access points
+  Access_points_for_group: 'Access points of group "%{group}"'
+  Access_points_of_every_wisp: Access points of every wisp
+  Access_points_map: Access points Map
+  Home: Home
+  Info: Info
+  Interface_address: Inteface address
+  Interface_vendor: Inteface vendor
+  Ip_addr: IP Address
+  Last_activity: Last activity
+  Last_day: Last day
+  Last_month: Last month
+  Last_week: Last week
+  Latest_seen: Latest seen on
+  Loading: Loading
+  Map: Map
+  More_info: More information
+  Name: Name
+  Next: Next
+  No_data_to_display: Access point unknown, there is no data to display.
+  No_description_available: No description is available for this access point
+  No_javascript: Javascript disabled!
+  No_notes_available: No additional notes available
+  No_site_description_available: Description for installation site is not available
+  None: None
+  Notes: Additional notes
+  Ok: Ok
+  Prev: Previous
+  Public: Published
+  Public_on_Georss: Visible on GeoRSS
+  Quick_search: Quick search
+  Filter_fav: Filter favourite
+  Remember_me: Remember me
+  Reset_highlighting: Reset highlighting
+  Reset_highlighting_fallback_message: There are no records highlighted at the moment
+  Reset_zoom: Reset zoom
+  Show: Show
+  Show_all_access_points: Show all access points
+  Sign_in: Sign in
+  Sign_out: Sign out
+  Site_description: Installation site
+  Status: Status
+  Unknown: Unknown
+  Up: Up
+  Update: Update
+  Username: Username
+  Will_be_rendered_in_georss: Will be rendered in GeoRSS
+  Wisp: Wisp
+  Wisp_list: Wisps List
+  User: User
+  username: Username
+  email: email
+  change_password: change password
+  Password: password
+  password_confirmation: password confirmation
+  Edit: Edit
+  Create: Create
+  Roles: Roles
+  Edit_user: Edit user
+  New_user: New user
+  Account_updated: User account modified successfully
+  Select: Select
+  Account_registered: New user account registered
+  Delete: Delete
+  Last_login: Last login
+  Actions: Actions
+  Online_users: Online users
+  Group: Group
+  Groups: Groups
+  Group_list: Group management
+  Group_statistics: Group statistics
+  New_group: New Group  
+  Edit_group: Edit group
+  Total_AP: Total AP
+  Monitor: Monitoring active?
+  Monitoring_disabled_for_group: Monitoring disabled
+  Monitor_help: "This flag indicates wheter the system should monitor the status of the access points contained in this group"
+  No_wisp: No wisp associated
+  Users: Users
+  User_management: User management interface
+  Mac_address: Mac address
+  Cannot_delete_default_group: Cannot delete default group
+  No_AP: There are no access points yet  
+  Manage_groups: Manage groups
+  Group_modified: Group modified successfully
+  Group_modified: Gruppo "%{group}" modificato con successo
+  Group_list_of_wisp: 'Group list of "%{wisp}"'
+  View_AP: View AP
+  View_all_the_AP: All access points
+  Groups_of_this_wisp: Groups of this wisp
+  Access_points_of_this_wisp: Access points of this wisp
+  Select_all: Select all
+  Change_group: Change group
+  No_access_point_selected: "You must select some access points.\n\nTry to select the rows of the table with your mouse."
+  Bad_format_parameters: Bad format parameters
+  Group_not_found: Group not found
+  User_does_not_have_permission_group: User does not have permission to manage wisp of the specified group
+  User_does_not_have_permission_ap_id: "User does not have permission to manage wisp of ap with id %{ap_id}"
+  Moving_access_point_different_wisp_not_allowed: 'Moving access point of wisp "%{wisp1}" in a group of "%{wisp2}" is not allowed'
+  Access_point_updated: "%{length} access points updated"
+  Select_all_title: "Select all (CTRL + A)\nor deselect all (ESC)"
+  Change_group_title: "Change group of the selected access points (CTRL + G)"
+  Access_points_of_wisp: Wisp <b>"%{wisp}"</b>
+  Access_points_of_wisp_group: Wisp <b>"%{wisp}"</b> &raquo; <b>"%{group}"</b>
+  Count_stats: Count statistics
+  Count_stats_help: "This flag indicates if the sysem has to take in consideration the access points of this group when evaluating the general statists of the wisp (up, down, unknown, total)"
+  Published_thead_tooltip: Indicates whether the access point\nis published in the GeoRSS
+  Favourite_acccess_points: Favourite Access Points
+  Total: Total
+  Favourite: Favourite
+  Favourites: Favourites
+  Add_to_favourites: Add to favourites
+  Remove_from_favourites: Remove from favourites
+  Reset_all: Reset all
+  Remove_all_from_favourites: Remove all from favourites
+  View_favourite_of_wisp: View favourite of %{wisp}
+  View_groups_of_wisp: View groups of %{wisp}
+  Unrecognized_property_name: Unrecognized property_name parameter
+  Exec_batch_action: Execute batch action
+  Select_action: Select action
+  Change_group_action: Change group (CTRL + G)
+  Add_to_favourite_action: Add to favourite (CTRL+D)
+  Remove_from_favourite_action: Remove from favourite (ALT+D)
+  Publish_action: Publish (CTRL+P)
+  Unpublish_action: Unpublish (ALT+P)
+  next_page_tooltip: "(SHIFT + RIGHT)"
+  prev_page_tooltip: "(SHIFT + LEFT)"
+  not_monitored: not monitored
+  Last_10_logins: "Last 10 logins"
+  last_logins_problem: "Network problem or feature not yet implemented for this wisp"
+  # Alerts
+  Alert_settings: Alert Settings for Group
+  Alerts_active: Alert active?
+  Alerts_active_help_text: Indicates whether alert notifications via email for this group are active or not.
+  Alerts_email_help_text: Email addresses that will receive alerts for this group.
+  Email_addresses: Email addresses
+  Threshold_down: Threshold down
+  Threshold_up: Threshold up
+  Threshold_down_help_text: Minutes to wait before sending an alert when an access point is no longer reachable.
+  Threshold_up_help_text: Minutes to wait before sending an alert when an access point becomes reachable again.
+  Is_customized: Customized settings?
+  # validation errors
+  Value_is_not_an_email: %{value} is not a valid email address
+  Is_not_an_email: is not a valid email address
+  alerts_email_not_blank_if: email must be specified if alerts are active
+  alerts_threshold_down_not_blank_if: threshold down must be specified if alerts are active
+  alerts_threshold_up_not_blank_if: threshold up must be specified if alerts are active
+  # alerts email text
+  hostname_is_no_longer_reachable: %{hostname} is no longer reachable
+  hostname_is_now_reachable_again: %{hostname} is now reachable again
+  Notification_type: Notification type
+  PROBLEM: PROBLEM
+  RECOVERY: RECOVERY
+  since: since
+  # access point page - alert related
+  Manger_email: Manager email
+  not_set: not set
+  reset: reset
+  Yes: Yes
+  No: No
+  # usage stats
+  Usage_stats: Usage statistics
+  Interval: Interval
+  Daily_logins: Daily logins
+  Daily_traffic: Daily traffic
+
+  # Lowercase
+  logged_as: logged in as
+  all: all
+  back: back
+  click_to_edit: click to edit
+  details: details
+  down: down
+  'false': 'no'
+  higher: higher
+  higher_lower: "higher/lower"
+  lower: lower
+  markers: markers
+  not_seen: never seen before
+  n_days_ago:
+    one: 1 day ago
+    other: "#{count} days ago"
+  than: than
+  total: total
+  'true': 'yes'
+  unknown: unknown
+  up: up
+  description: description
+  name: name
+  monitor: monitoring
+  favourites: favourites
+  name: name
+  username: username
+  ip_address: ip address
+  mac_address: mac address
+  login_date: login date
+  download_kbytes: download (kbytes)
+  upload_kbytes: upload (kbytes)
+  logout_date: logout date
+  online: online
+  
+  # Defaults for rails
+  errors:
+    messages:
+      not_found: "not found"
+      already_confirmed: "was already confirmed"
+      not_locked: "was not locked"
+
+  devise:
+    failure:
+      unauthenticated: 'You need to sign in or sign up before continuing.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: 'Invalid username or password.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: 'Signed in successfully.'
+      signed_out: 'Signed out successfully.'
+    passwords:
+      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+    confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: 'You have signed up successfully. If enabled, a confirmation was sent to your e-mail.'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+      unlock_instructions:
+        subject: 'Unlock Instructions'
+
+  views:
+    pagination:
+      first: "&laquo; First"
+      last: "Last &raquo;"
+      previous: "&laquo; Prev"
+      next: "Next &raquo;"
+      truncate: "..."
+
+  date:
+    formats:
+      default: "%m/%d/%Y"
+
+  time:
+    formats:
+      default: "%m/%d/%Y %H:%M"

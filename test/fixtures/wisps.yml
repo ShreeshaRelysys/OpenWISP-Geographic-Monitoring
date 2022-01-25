@@ -1,0 +1,14 @@
+provincia_wifi:
+  id: 1
+  name: 'provinciawifi'
+  notes: 'testing 1'
+
+freewifibrescia:
+  id: 2
+  name: 'freewifi brescia'
+  notes: 'testing 2'
+
+small:
+  id: 3
+  name: 'small wisp'
+  notes: 'testing 3'

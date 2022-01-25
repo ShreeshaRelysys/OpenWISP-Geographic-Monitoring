@@ -1,0 +1,69 @@
+<%#
+# This file is part of the OpenWISP Geographic Monitoring
+#
+# Copyright (C) 2012 OpenWISP.org
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#%>
+
+<script id="access_point_infowindow_templ" type="text/html">
+  <h5><%=t :Access_point_info %></h5>
+  <table>
+    <tbody class="hover">
+    <tr>
+      <td><strong><%=t :Hostname %></strong></td>
+      <td>__hostname__</td>
+    </tr>
+    <tr>
+      <td><strong><%=t :Address %></strong></td>
+      <td>__address__</td>
+    </tr>
+    <tr>
+      <td><strong><%=t :City %></strong></td>
+      <td>__city__</td>
+    </tr>
+    <tr>
+      <td colspan="2">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="center"><a href="__url__"><%=t :Details %></a></td>
+    </tr>
+    </tbody>
+  </table>
+</script>
+
+<script id="cluster_infowindow_templ" type="text/html">
+  <h5><%=t :Cluster_info %></h5>
+  <table>
+    <thead>
+    <tr>
+      <th><%=t :Status %></th>
+      <th class="center"><%=t :Hostname %></th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody class="hover">
+    __access_points__
+    </tbody>
+  </table>
+</script>
+
+<script id="access_points_infowindow_templ" type="text/html">
+  <tr>
+    <td><img src="__icon__" alt="access point icon" width="30" height="35"></td>
+    <td class="middle center">__hostname__</td>
+    <td class="middle center"><a href="__url__"><%=t :details %></a></td>
+  </tr>
+</script>
+

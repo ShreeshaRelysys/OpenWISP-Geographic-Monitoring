@@ -1,0 +1,96 @@
+<% content_for :after_defaults do %>
+    <%= javascript_include_tag 'jquery-ui.js', 'jquery.tagit.js' %>
+    <%= stylesheet_link_tag 'jquery-ui/styles.css', 'jquery.tagit.css' %>
+<% end %>
+
+<%= form_for @group do |f| %>
+    <fieldset id="group_form">
+        <legend><strong><%= @group.new_record? ? t(:New_group) : t(:Edit_group) %></strong></legend>
+        <p><%= f.error_messages %></p>
+        <div class="field">
+            <strong><%= label_tag :wisp, t(:Wisp) %>:</strong>
+            <%= f.select(:wisp_id, Wisp.collection(@current_user)) %>
+        </div>
+        <div class="field">
+            <strong><%= label_tag :group_name, t(:Name) %>:</strong>
+            <%= f.text_field :name %>
+        </div>
+        
+        <div class="field">
+            <strong><%= label_tag :group_description, t(:Description) %>:</strong><br />
+            <%= f.text_area :description %>
+        </div>
+        
+        <div class="field">
+            <p><strong><%= label_tag :group_monitor, t(:Monitor) %>:</strong> <%= f.check_box :monitor %></p>
+            <p><span class="help"><%= t :Monitor_help %>.</span></p>
+        </div>
+        
+        <div class="field">
+            <p><strong><%= label_tag :group_count_stats, t(:Count_stats) %>:</strong> <%= f.check_box :count_stats %></p>
+            <p><span class="help"><%= t :Count_stats_help %>.</span></p>
+        </div>
+
+        <% if @group.id != 1 %>
+        <fieldset id="alert-settings" class="subgroup hidden">
+            <legend><%= t :Alert_settings %></legend>
+            <div class="field">
+                <%= label_tag :group_alerts, t(:Alerts_active) %>
+                
+                <div class="right">
+                    <%= f.check_box :alerts %>
+                    <span class="help"><%= t :Alerts_active_help_text %></span>
+                </div>
+            </div>
+            
+            <div class="field">
+                <%= label_tag :group_alerts_email, t(:Email_addresses) %>
+                
+                <div class="right">
+                    <%= f.text_field :alerts_email, :value => alerts_placeholder(@group, 'alerts_email') %>
+                    <span class="help"><%= t :Alerts_email_help_text %></span>
+                </div>
+            </div>
+                
+            <div class="field">
+                <%= label_tag :group_alerts_threshold_down, t(:Threshold_down) %>
+                
+                <div class="right">
+                    <%= f.number_field :alerts_threshold_down, :value => alerts_placeholder(@group, 'alerts_threshold_down'), :min => 0 %>
+                    <span class="help"><%= t :Threshold_down_help_text %></span>
+                </div>
+            </div>
+            
+            <div class="field">
+                <%= label_tag :group_alerts_threshold_up, t(:Threshold_up) %>
+                
+                <div class="right">
+                    <%= f.number_field :alerts_threshold_up, :value => alerts_placeholder(@group, 'alerts_threshold_up'), :min => 0 %>
+                    <span class="help"><%= t :Threshold_up_help_text %></span>
+                </div>
+            </div>
+        </fieldset>
+        <script>owgm.initGroupAlertSettings()</script>
+        <% end %>
+        
+        <% unless @group.new_record? %>
+        <div class="box" id="group_stats">
+            <h2><%= t :Group_statistics %></h2>
+            <p><strong><%= t(:Total_AP) %>:</strong> <%= @group.total %></p>
+            <p><strong><%= t(:Total_AP_up) %>:</strong> <%= @group.up %></p>
+            <p><strong><%= t(:Total_AP_down) %>:</strong> <%= @group.down %></p>
+            <p><strong><%= t(:Created_at) %>:</strong> <%= @group.created_at.to_time.strftime('%e %B %Y - %l:%M %p') rescue nil %></p>
+            <p><strong><%= t(:Updated_at) %>:</strong> <%= @group.updated_at.to_time.strftime('%e %B %Y - %l:%M %p') rescue nil %></p>
+        </div>
+        <% end %>
+        
+        <p>
+        <% if @group.new_record? %>
+            <%= f.submit t(:Create), :class => 'submit' %>
+        <% else %>
+            <%= f.submit t(:Edit), :class => 'submit' %>
+        <% end %>
+        </p>
+    </fieldset>
+<% end %>
+

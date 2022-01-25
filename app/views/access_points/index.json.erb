@@ -1,0 +1,57 @@
+<%#
+# This file is part of the OpenWISP Geographic Monitoring
+#
+# Copyright (C) 2012 OpenWISP.org
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#%>
+
+[<%=
+  json_access_points = []
+  @access_points.each do |marker|
+    if marker.is_a? AccessPoint
+      json_access_points << {:access_point => {
+        :hostname => marker.hostname,
+        :lat => marker.lat,
+        :lng => marker.lng,
+        :address => marker.address,
+        :city => marker.city,
+        :icon => image_path_for(marker),
+        :url => wisp_access_point_url(marker.wisp_id, marker)
+      }}.to_json
+    elsif marker.is_a? Cluster
+      access_points_clustered = []
+
+      marker.access_points.each do |access_point|
+        access_points_clustered << {:access_point => {
+          :hostname => access_point.hostname,
+          :lat => access_point.lat,
+          :lng => access_point.lng,
+          :address => access_point.address,
+          :city => access_point.city,
+          :icon => image_path_for(access_point),
+          :url => wisp_access_point_url(access_point.wisp, access_point)
+        }}
+      end
+
+      json_access_points << {:cluster => {
+        :lat => marker.lat,
+        :lng => marker.lng,
+        :icon => image_path_for(marker),
+        :access_points => access_points_clustered
+      }}.to_json
+    end
+  end
+  raw json_access_points.join(',')
+%>]

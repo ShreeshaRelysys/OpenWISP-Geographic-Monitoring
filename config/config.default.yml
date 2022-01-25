@@ -1,0 +1,117 @@
+defaults: &defaults
+  showmap: false
+  last_logins: true
+  # values should be between 1 and 100
+  access_point_pagination: [
+    { value: 10, default: false },
+    { value: 20, default: false },
+    { value: 50, default: false },
+    { value: 100, default: true }
+  ]
+  showstatus: false        # show status column in availability report
+
+  # Number of threads
+  max_threads: 10
+  # Expected seconds to consider a ping timed-out
+  ping_timeout: 5
+  # Max number of pings for each AP before considering it down
+  max_pings: 5
+  # Months between each house keeping cycle
+  housekeeping_interval: 6
+  # Maximum number of minutes before the "rake check:monitoring" will send an alert
+  check_monitoring_max_min: 15
+  
+  # user counts graphs can be disabled
+  user_counts_graphs: true
+  # AP usage stats hidden
+  ap_stats_collapsed: false
+  
+  # owums credentials for each wisp
+  # each key in the owums hash is a wisp
+  # keys must contain wisp slug (lowercase name and dashes instead of spaces)
+  owums: {
+    "wisp-slug": {
+      url: "https://mydomain.com/owums",
+      username: "username",
+      password: "password"
+    }
+    # add any other wisp here
+  }
+  
+  # datawarehouse credentials for each wisp
+  # if you are using the openwisp module for pentahoo
+  datawarehouse: {
+    "wisp-slug": {
+      url: "http://my.datawarehouse.com",
+      username: "username",
+      password: "password"
+    }
+  }
+  
+  # protocol, host and subfolder for links sent via email
+  protocol: https
+  host: change_me.com
+  subdir: 'owgm'
+  # from email in alerts and exception reports
+  from_email: owgm@localhost
+  # mail subject prefix that will be used in exceptions and monitoring
+  mail_subject_prefix: "[OWGM]"
+  
+  # comma separated emails to which rails exceptions will be sent
+  # false means disabled
+  # ignored if sentry is configured 
+  exception_notification_recipients: root@localhost
+  
+  # sentry exception logger configuration
+  #sentry_dsn: 'http://public:secret@example.com/project-id'
+  
+  # default value for group setting "alert_threshold_up"
+  alerts_threshold_down:  90
+  # default value for group setting "alert_threshold_up"
+  alerts_threshold_up:  45
+  # default value for group setting "alert_email"
+  alerts_email: ""
+  # uncomment the following config keys if you need to customize the subject and body text of alarms
+  #alert_down_subject_suffix: "%{hostname} is no longer reachable"
+  #alert_up_subject_suffix: "%{hostname} is now reachable again"
+  # message text that will be sent to admins
+  #alert_body_text_admin: |
+  #  ***** OpenWISP Geographic Monitoring *****
+  #  
+  #  Notification type: %{notification_type}
+  #  Host: %{hostname}
+  #  Status: %{status} since %{status_changed_at}
+  #  
+  #  City: %{city}
+  #  Address: %{address}
+  #  Ip address: %{ip}
+  #  Mac address: %{mac_address}
+  #  
+  #  Notes:
+  #  %{notes}
+  #  
+  #  URL: %{url}
+  # message that will be sent to access point owners or managers
+  #alert_body_text_manager: |
+  #  ***** OpenWISP Geographic Monitoring *****
+  #  
+  #  Notification type: %{notification_type}
+  #  Host: %{hostname}
+  #  Status: %{status} since %{status_changed_at}
+  #  
+  #  City: %{city}
+  #  Address: %{address}
+  #  Ip address: %{ip}
+  #  Mac address: %{mac_address}
+  #  
+  #  Notes:
+  #  %{notes}
+
+production:
+  <<: *defaults
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
